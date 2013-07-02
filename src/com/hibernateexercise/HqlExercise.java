@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 
 import com.hibernateexercise.helpers.EmployeeHelper;
 import com.hibernateexercise.helpers.PrintHelper;
-import com.hibernateexercise.sessionutils.Connection;
+import com.hibernateexercise.sessionutils.SimpleConnection;
 import com.hibernateexercise.sessionutils.IConnectionVisitor;
 import com.hibernateexercise.sessionutils.SessionManager;
 
@@ -74,7 +74,7 @@ public class HqlExercise {
 				PrintHelper.printResultsItems(employees);
 			}
 		}
-		new Connection().accept(new Visitor(hql));
+		new SimpleConnection().accept(new Visitor(hql));
 
 		
 	}
@@ -95,7 +95,7 @@ public class HqlExercise {
 				EmployeeHelper.printEmployeeList(employees);
 			}
 		}
-		new Connection().accept(new Visitor(hql));
+		new SimpleConnection().accept(new Visitor(hql));
 	}
 	
 	public void testHqlPaging(String hql, int pageSize)
@@ -130,7 +130,7 @@ public class HqlExercise {
 					firstResult += pageSize;
 				} while (continueListing);			}
 		}
-		new Connection().accept(new Visitor(hql, pageSize));
+		new SimpleConnection().accept(new Visitor(hql, pageSize));
 	}
 	public void testHqlParameter(String hql, String parameterName, Object parameterValue)
 	{
@@ -156,7 +156,7 @@ public class HqlExercise {
 				EmployeeHelper.printEmployeeList(employees);
 			}
 		}
-		new Connection().accept(new Visitor(hql, parameterName, parameterValue));		
+		new SimpleConnection().accept(new Visitor(hql, parameterName, parameterValue));		
 	}
 	
 	public void testHqlUpdateParameterList(String hql, Object[][] parametersNameValue)
@@ -184,7 +184,7 @@ public class HqlExercise {
 				System.out.println("Rows affected: " + results);
 			}
 		}
-		new Connection().accept(new Visitor(hql, parametersNameValue));	
+		new SimpleConnection().accept(new Visitor(hql, parametersNameValue));	
 	}
 	
 }

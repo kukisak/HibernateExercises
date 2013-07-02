@@ -13,7 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import com.hibernateexercise.beans.Employee;
 import com.hibernateexercise.helpers.EmployeeHelper;
 import com.hibernateexercise.helpers.PrintHelper;
-import com.hibernateexercise.sessionutils.Connection;
+import com.hibernateexercise.sessionutils.SimpleConnection;
 import com.hibernateexercise.sessionutils.IConnectionVisitor;
 
 public class CriteriaExercise {
@@ -65,7 +65,7 @@ public class CriteriaExercise {
 				PrintHelper.printResultsItems(results);
 			}
 		}
-		new Connection().accept(new Visitor());
+		new SimpleConnection().accept(new Visitor());
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());		
+		new SimpleConnection().accept(new Visitor());		
 	}
 	/**
 	 * Create filter to return objects of type Employee page by page.
@@ -121,7 +121,7 @@ public class CriteriaExercise {
 				} while (continueListing);				
 			}
 		}
-		new Connection().accept(new Visitor(pageSize));		
+		new SimpleConnection().accept(new Visitor(pageSize));		
 		
 	}
 	/**
@@ -143,7 +143,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	/**
 	 * Create filter to return only objects where fields firstName have "case sensitive" value "Petr".
@@ -162,7 +162,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	/**
 	 * Create filter to return only objects where fields firstName have ignore-case sensitive value "petr".
@@ -180,7 +180,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	/**
 	 * Create filter to return only objects where field salary has value in range (4000, 10000).
@@ -199,7 +199,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	/**
 	 * Create filter to return only objects where field salary has value equal to 9000. 
@@ -217,7 +217,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	/**
 	 * Create filter to return only objects of type Employee.
@@ -234,7 +234,7 @@ public class CriteriaExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor());			
+		new SimpleConnection().accept(new Visitor());			
 	}
 	
 }

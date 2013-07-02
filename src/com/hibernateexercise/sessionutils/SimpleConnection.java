@@ -4,7 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class Connection implements IConnection {
+public class SimpleConnection implements IConnection {
 
 	@Override
 	public void accept(IConnectionVisitor visitor) 

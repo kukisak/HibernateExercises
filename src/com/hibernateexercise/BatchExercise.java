@@ -4,7 +4,7 @@ import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 
 import com.hibernateexercise.beans.BatchEmployee;
-import com.hibernateexercise.sessionutils.Connection;
+import com.hibernateexercise.sessionutils.SimpleConnection;
 import com.hibernateexercise.sessionutils.IConnectionVisitor;
 import com.hibernateexercise.sessionutils.SessionManager;
 
@@ -36,7 +36,7 @@ public class BatchExercise {
 			}
 
 		}
-		new Connection().accept(new visitor());
+		new SimpleConnection().accept(new visitor());
 	}
 	
 	public void testUpdateEmployees()
@@ -62,6 +62,6 @@ public class BatchExercise {
 				
 			}
 		}
-		new Connection().accept(new visitor());
+		new SimpleConnection().accept(new visitor());
 	}
 }

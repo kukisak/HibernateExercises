@@ -12,7 +12,7 @@ import org.hibernate.transform.ResultTransformer;
 import com.hibernateexercise.beans.Employee;
 import com.hibernateexercise.helpers.EmployeeHelper;
 import com.hibernateexercise.helpers.PrintHelper;
-import com.hibernateexercise.sessionutils.Connection;
+import com.hibernateexercise.sessionutils.SimpleConnection;
 import com.hibernateexercise.sessionutils.IConnectionVisitor;
 import com.hibernateexercise.sessionutils.SessionManager;
 
@@ -58,7 +58,7 @@ public class SqlExercise {
 				PrintHelper.printResultsItems(results);
 			}
 		}
-		new Connection().accept(new Visitor(sql, transformer));
+		new SimpleConnection().accept(new Visitor(sql, transformer));
 	}
 	/**
 	 * Create read-only SQL query with results in map.
@@ -82,7 +82,7 @@ public class SqlExercise {
 				PrintHelper.printResultsScalarMap(results);
 			}
 		}
-		new Connection().accept(new Visitor(sql));
+		new SimpleConnection().accept(new Visitor(sql));
 	}
 	/**
 	 * Create read-only SQL query to read each result row as an Employee entity.
@@ -105,7 +105,7 @@ public class SqlExercise {
 				EmployeeHelper.printEmployeeList(results);
 			}
 		}
-		new Connection().accept(new Visitor(sql));
+		new SimpleConnection().accept(new Visitor(sql));
 	}
 	/**
 	 * Create read-only SQL query to read each result row as an Employee entity with specified parameters as placeholders.
@@ -139,6 +139,6 @@ public class SqlExercise {
 				
 			}
 		}
-		new Connection().accept(new Visitor(sql, parametersNameValue));
+		new SimpleConnection().accept(new Visitor(sql, parametersNameValue));
 	}
 }
